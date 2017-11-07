@@ -4,10 +4,10 @@
             <div class="header item">
               <a href="#"><img src="images/logo.jpg" class="ui circular image" alt=""></a>
             </div>
-            <a href="#product-section" du-smooth-scroll du-scrollspy class="right item hidden-xs">Produk</a>
-            <a href="#howto-section" du-smooth-scroll du-scrollspy class="item hidden-xs">Cara Kerja</a>
-            <a href="#news-section" du-smooth-scroll du-scrollspy class="item hidden-xs">Berita</a>
-            <a href="#contact-section" du-smooth-scroll du-scrollspy class="item hidden-xs">Kontak</a>
+            <a href="#product-section" du-smooth-scroll du-scrollspy duration="1500" class="right item hidden-xs">Produk</a>
+            <a href="#howto-section" du-smooth-scroll du-scrollspy duration="1500" class="item hidden-xs">Cara Kerja</a>
+            <a href="#news-section" du-smooth-scroll du-scrollspy duration="1500" class="item hidden-xs">Berita</a>
+            <a href="#contact-section" du-smooth-scroll du-scrollspy duration="1500" class="item hidden-xs">Kontak</a>
             <a href="#" class="right sidebar item visible-xs"><i class="sidebar icon"></i></a>
           </div>
         </div>
@@ -18,10 +18,10 @@
             <div class="column">
               <h4 class="ui header">Navigation</h4>
               <div class="ui link list">
-                <a href="#product-section" du-smooth-scroll du-scrollspy class="item">Produk</a>
-                <a href="#howto-section" du-smooth-scroll du-scrollspy class="item">Cara Kerja</a>
-                <a href="#news-section" du-smooth-scroll du-scrollspy class="item">Berita</a>
-                <a href="#contact-section" du-smooth-scroll du-scrollspy class="item">Kontak</a>
+                <a href="#product-section" du-smooth-scroll du-scrollspy duration="1500" class="item">Produk</a>
+                <a href="#howto-section" du-smooth-scroll du-scrollspy duration="1500" class="item">Cara Kerja</a>
+                <a href="#news-section" du-smooth-scroll du-scrollspy duration="1500" class="item">Berita</a>
+                <a href="#contact-section" du-smooth-scroll du-scrollspy duration="1500" class="item">Kontak</a>
               </div>
             </div>
           </div>
@@ -45,7 +45,6 @@
         </div>
       </div>
       <!-- END DIVIDER text -->
-    
       <!-- Product Section -->
       <div id="product-section" class="ui product divsection">
         <div class="ui container">
@@ -54,24 +53,24 @@
           </h2>
           <div class="ui two column stackable grid">
             <!-- Start Column -->
-            <div class="column">
+            <div class="column" ng-repeat="product in products">
               <div class="ui raised segment">
                 <div class="ui stackable grid">
                   <div class="five wide column">
-                    <img src="images/produk/sample.jpg" alt="Sample Produk" class="ui fluid image">
+                    <img ng-src="{{product.image}}" alt="{{product.name}}" class="ui fluid image">
                   </div>
                   <div class="eleven wide column">
-                    <h3 class="ui caption header">X-Banner</h3>
-                    Spesifikasi banner, ukuran, bahan, design.
+                    <h3 class="ui caption header">{{product.name}}</h3>
+                    {{product.description}}
                     <hr>
-                    <a href="javascript:" class="ui right floated inverted green product button">Rp 50.xxx</a>
+                    <button class="ui right floated inverted green product button">{{product.price}}</button>
                   </div>
                 </div>
               </div>
             </div>
             <!-- End Column -->
             <!-- Start Column -->
-            <div class="column">
+            <!-- <div class="column">
               <div class="ui raised segment">
                 <div class="ui stackable grid">
                   <div class="five wide column">
@@ -85,10 +84,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- End Column -->
             <!-- Start Column -->
-            <div class="column">
+            <!-- <div class="column">
               <div class="ui raised segment">
                 <div class="ui stackable grid">
                   <div class="five wide column">
@@ -102,10 +101,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- End Column -->
             <!-- Start Column -->
-            <div class="column">
+            <!-- <div class="column">
               <div class="ui raised segment">
                 <div class="ui stackable grid">
                   <div class="five wide column">
@@ -119,7 +118,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- End Column -->
           </div>
         </div>
@@ -200,7 +199,7 @@
                 <a href="#" class="item">Tentang Kami</a>
                 <a href="#" class="item">Kebijakan Privasi</a>
                 <a href="#" class="item">Syarat & Ketentuan</a>
-                <a href="#header-section" du-smooth-scroll du-scrollspy class="item"><small class="visible-xs">Ke atas</small>&nbsp; <i class="chevron up icon noresize"></i></a>
+                <a href="#header-section" du-smooth-scroll du-scrollspy duration="1000" class="item"><small class="visible-xs">Ke atas</small>&nbsp; <i class="chevron up icon noresize"></i></a>
               </div>
               <br>
               <div class="ui inverted horizontal icon link list">
@@ -215,69 +214,32 @@
       <!-- END Footer -->
     
       <!-- Modal Section -->
-      <div class="ui tiny modal">
-        <div class="header">X-Banner</div>
-        <div class="scrolling content">
-          <div class="ui stackable grid">
-            <div class="ui row">
-              <div class="ui one wide column hidden-xs"><i class="checkmark icon"></i></div>
-              <div class="ui eleven wide column">
-                <a href="#"><strong>Analytical on advanced level</strong></a><br>
-                Lorem ipsum dolor sit amet balaka dum
+      <script type="text/ng-template" id="productModal.html">
+        <div class="ui tiny">
+          <!-- Header -->
+          <div class="modal-header">
+              <h3 class="modal-title" id="modal-title">X-Banner</h3>
+              <!-- <div class="modal-title header" id="modal-title">X-Banner</div> -->
+          </div>
+          <!-- Body -->
+          <div class="modal-body scrolling content" id="modal-body">
+            <div class="ui stackable grid">
+              <div class="ui row" style="margin-left: 0;">
+                <div class="ui one wide column hidden-xs"><i class="checkmark icon"></i></div>
+                <div class="ui eleven wide column">
+                  <a href="#"><strong>Analytical on advanced level</strong></a><br>Lorem ipsum dolor sit amet balaka dum
+                </div>
+                <div class="ui four wide column"><div class="ui mini green button">Rp 125.000</div></div>
               </div>
-              <div class="ui four wide column"><div class="ui mini green button">Rp 125.000</div></div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="ui row">
-              <div class="ui one wide column hidden-xs"><i class="checkmark icon"></i></div>
-              <div class="ui eleven wide column">
-                <a href="#"><strong>Analytical on advanced level</strong></a><br>
-                Lorem ipsum dolor sit amet balaka dum
-              </div>
-              <div class="ui four wide column"><div class="ui mini green button">Rp 125.000</div></div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="ui row">
-              <div class="ui one wide column hidden-xs"><i class="checkmark icon"></i></div>
-              <div class="ui eleven wide column">
-                <a href="#"><strong>Analytical on advanced level</strong></a><br>
-                Lorem ipsum dolor sit amet balaka dum
-              </div>
-              <div class="ui four wide column"><div class="ui mini green button">Rp 150.000</div></div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="ui row">
-              <div class="ui one wide column hidden-xs"><i class="checkmark icon"></i></div>
-              <div class="ui eleven wide column">
-                <a href="#"><strong>Analytical on advanced level</strong></a><br>
-                Lorem ipsum dolor sit amet balaka dum
-              </div>
-              <div class="ui four wide column"><div class="ui mini green button">Rp 150.000</div></div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="ui row">
-              <div class="ui one wide column hidden-xs"><i class="checkmark icon"></i></div>
-              <div class="ui eleven wide column">
-                <a href="#"><strong>Analytical on advanced level</strong></a><br>
-                Lorem ipsum dolor sit amet balaka dum
-              </div>
-              <div class="ui four wide column"><div class="ui mini green button">Rp 150.000</div></div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="ui row">
-              <div class="ui one wide column hidden-xs"><i class="checkmark icon"></i></div>
-              <div class="ui eleven wide column">
-                <a href="#"><strong>Analytical on advanced level</strong></a><br>
-                Lorem ipsum dolor sit amet balaka dum
-              </div>
-              <div class="ui four wide column"><div class="ui mini green button">Rp 150.000</div></div>
+              <div class="ui divider"></div>
             </div>
           </div>
-        </div>
-        <div class="actions">
-          <div class="ui black deny button">
-            Close
+          <!-- Footer -->
+          <div class="modal-footer actions">
+              <div class="ui black deny button">
+                Close
+              </div>
           </div>
         </div>
-      </div>
+      </script>
       <!-- End Modal Section -->

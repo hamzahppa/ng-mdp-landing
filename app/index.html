@@ -13,16 +13,20 @@
 
   <title>Mobilan Digital Printing</title>
 
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-  <link rel="stylesheet" href="css/semantic.min.css">
-  <link rel="stylesheet/less" type="text/css" href="css/mdp.less" />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
 
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/semantic.min.css">
+  <link rel="stylesheet/less" type="text/css" href="css/mdp.less">
+  
   <script type="text/javascript" src="js/less.min.js"></script>
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <!-- <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">   -->
   
   <style>
     .ui.menu {
@@ -49,16 +53,21 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+  
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
   <script src="home/home.js"></script>
   <script src="product/product.js"></script>
   <script src="404/404.js"></script>
+  <script src="services/service.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
 
-  <script src="bower_components/angular-scroll/angular-scroll.js"></script>    
+  <script src="bower_components/angular-scroll/angular-scroll.js"></script>   
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 </body>
 </html>
